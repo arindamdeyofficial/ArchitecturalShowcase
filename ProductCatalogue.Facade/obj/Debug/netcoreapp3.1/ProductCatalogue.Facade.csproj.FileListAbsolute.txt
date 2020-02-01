@@ -1,0 +1,17 @@
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\obj\Debug\netcoreapp3.1\ProductCatalogue.Facade.csprojAssemblyReference.cache
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\obj\Debug\netcoreapp3.1\ProductCatalogue.Facade.AssemblyInfoInputs.cache
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\obj\Debug\netcoreapp3.1\ProductCatalogue.Facade.AssemblyInfo.cs
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.Facade.deps.json
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.Facade.dll
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.Facade.pdb
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.AggregateRoute.dll
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.Contacts.dll
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.Models.dll
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.Repository.dll
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.AggregateRoute.pdb
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.Contacts.pdb
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.Models.pdb
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\bin\Debug\netcoreapp3.1\ProductCatalogue.Repository.pdb
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\obj\Debug\netcoreapp3.1\ProductCatalogue.Facade.csproj.CopyComplete
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\obj\Debug\netcoreapp3.1\ProductCatalogue.Facade.dll
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Facade\obj\Debug\netcoreapp3.1\ProductCatalogue.Facade.pdb

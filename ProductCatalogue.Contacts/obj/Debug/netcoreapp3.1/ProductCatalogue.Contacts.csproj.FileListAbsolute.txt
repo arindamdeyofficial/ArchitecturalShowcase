@@ -1,0 +1,8 @@
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Contacts\bin\Debug\netcoreapp3.1\ProductCatalogue.Contacts.deps.json
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Contacts\bin\Debug\netcoreapp3.1\ProductCatalogue.Contacts.dll
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Contacts\obj\Debug\netcoreapp3.1\ProductCatalogue.Contacts.csprojAssemblyReference.cache
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Contacts\obj\Debug\netcoreapp3.1\ProductCatalogue.Contacts.AssemblyInfoInputs.cache
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Contacts\obj\Debug\netcoreapp3.1\ProductCatalogue.Contacts.AssemblyInfo.cs
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Contacts\bin\Debug\netcoreapp3.1\ProductCatalogue.Contacts.pdb
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Contacts\obj\Debug\netcoreapp3.1\ProductCatalogue.Contacts.dll
+D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Contacts\obj\Debug\netcoreapp3.1\ProductCatalogue.Contacts.pdb
