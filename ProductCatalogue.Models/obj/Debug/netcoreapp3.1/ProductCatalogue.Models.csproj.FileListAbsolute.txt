@@ -1,8 +1,0 @@
-D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Models\bin\Debug\netcoreapp3.1\ProductCatalogue.Models.deps.json
-D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Models\bin\Debug\netcoreapp3.1\ProductCatalogue.Models.dll
-D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Models\bin\Debug\netcoreapp3.1\ProductCatalogue.Models.pdb
-D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Models\obj\Debug\netcoreapp3.1\ProductCatalogue.Models.csprojAssemblyReference.cache
-D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Models\obj\Debug\netcoreapp3.1\ProductCatalogue.Models.AssemblyInfoInputs.cache
-D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Models\obj\Debug\netcoreapp3.1\ProductCatalogue.Models.AssemblyInfo.cs
-D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Models\obj\Debug\netcoreapp3.1\ProductCatalogue.Models.dll
-D:\OneDrive\Code\TestWebApi\TestApi\ProductCatalogue.Models\obj\Debug\netcoreapp3.1\ProductCatalogue.Models.pdb

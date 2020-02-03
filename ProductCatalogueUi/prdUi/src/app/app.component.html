@@ -2,5 +2,13 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  
+  <ag-grid-angular
+  [enableFilter]="true"
+  [enableSorting]="true"
+  [pagination]="true" 
+    style="width: 500px; height: 500px;" 
+    class="ag-theme-balham"
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs">
+</ag-grid-angular>
 </div>
