@@ -38,17 +38,13 @@
   </ul>
  </h4>
 <h2>ORM tools</h2>
-<br/>
 <h4>
 EntityFramework Core[Code first] and Dapper
  <h4>
-<br/>
 <h2>Other Tools</h2>
-<br/>
 <h4>
 <ul>
 <li>Swagger</li>
 <li>Automapper</li>
 </ul>
 </h4>
-<br/>
