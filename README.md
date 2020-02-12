@@ -1,14 +1,14 @@
 # ArchitecturalShowcase
 <h2>Problem Statement Taken</h2>
-<h4>One simple grid in UI capable of CRUD such as Add,Edit,Delete,Update<h4>
+<font size="6">One simple grid in UI capable of CRUD such as Add,Edit,Delete,Update</font>
 <h2>Summary</h2>
-<h4>Very Simple example of WebApi implimenting Cloud Native Architecture having capability to handle 10000 concurrent user with degree of parallalism having capability of controlling Task and Thread.</h4>
+<h4>Very Simple example of WebApi implimenting Cloud Native Architecture having capability to handle 10000 concurrent user with degree of parallalism having capability of controlling Task</h4>
 <h2>Highlights</h2>
 <h4>
  <ul>
 <li>With abstract Generics implimentation of BaseController we can have typed Factory e.g. ILogger</li>
 <li>Can handle 10000 concurrent user</li>
-<li>Ability to control over Task and Thread with cancellation token implimentation</li>
+<li>Ability to control over Task with cancellation token implimentation</li>
 <li>Through nTier layer with ASP .Net Core dependency Injection implimenting multiple resolver</li>
 <li>Cloud Native design with API plugability support</li>
 <li>Used mini ORM like dapper</li>
