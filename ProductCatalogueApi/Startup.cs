@@ -1,20 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ProductCatalogue.AggregateRoute;
+using ProductCatalogue.Contacts;
 using ProductCatalogue.Contacts.ServiceContracts;
 using ProductCatalogue.Facade;
 using ProductCatalogue.Repository;
+using ProductCatalogue.Repository.EfModel;
 
 namespace ProductCatalogueApi
 {
@@ -32,6 +29,9 @@ namespace ProductCatalogueApi
         {
             services.AddControllers();
             services.AddMvc();
+            services.Configure<AppConfigs>(Configuration.GetSection("AppConfigs"));
+            services.AddDbContext<DbContext>(options =>
+        options.UseSqlServer(Configuration.GetSection("SqlConnectionString").Value));
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
             services.AddSingleton<IProductRepository, ProductRepository>();

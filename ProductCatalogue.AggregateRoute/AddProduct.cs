@@ -2,6 +2,7 @@
 using ProductCatalogue.Contacts;
 using ProductCatalogue.Contacts.ServiceContracts;
 using System;
+using System.Threading.Tasks;
 
 namespace ProductCatalogue.AggregateRoute
 {
@@ -12,12 +13,12 @@ namespace ProductCatalogue.AggregateRoute
         {
             _prdRepo = prdRepo;
         }
-        public BaseResponse Execute(ProductContract obj)
+        public async Task<BaseResponse> Execute(ProductContract obj)
         {
             return new BaseResponse
             {
                 Message = "Product Added Successfully",
-                Success = _prdRepo.AddProduct(obj)
+                Success = await _prdRepo.AddProduct(obj)
             };
         }
     }

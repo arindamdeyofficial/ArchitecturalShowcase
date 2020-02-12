@@ -1,10 +1,11 @@
 ﻿using ProductCatalogue.Contacts;
 using System;
+using System.Threading.Tasks;
 
 namespace ProductCatalogue.AggregateRoute
 {    
     public interface IAggregateRoute
     {
-        BaseResponse Execute(ProductContract obj);
+        Task<BaseResponse> Execute(ProductContract obj);
     }
 }

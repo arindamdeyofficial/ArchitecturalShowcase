@@ -3,6 +3,7 @@ using ProductCatalogue.Contacts;
 using ProductCatalogue.Contacts.ServiceContracts;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ProductCatalogue.AggregateRoute
 {
@@ -13,9 +14,9 @@ namespace ProductCatalogue.AggregateRoute
         {
             _prdRepo = prdRepo;
         }
-        public BaseResponse Execute(ProductContract obj)
+        public async Task<BaseResponse> Execute(ProductContract obj)
         {
-            return _prdRepo.SearchProduct(obj);
+            return await _prdRepo.SearchProduct(obj);
         }
     }
 }

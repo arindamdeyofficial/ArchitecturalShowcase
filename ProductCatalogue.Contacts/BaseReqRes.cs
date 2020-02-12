@@ -10,6 +10,6 @@ namespace ProductCatalogue.Contacts
 
     public class BaseRequest
     {
-        public string UserName { get; set; }
+        public AppConfigs Configs { get; set; }
     }
 }
