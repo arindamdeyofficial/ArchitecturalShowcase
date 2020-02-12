@@ -2,7 +2,7 @@
 <h2>Problem Statement Taken</h2>
 <font size="6">One simple grid in UI capable of CRUD such as Add,Edit,Delete,Update</font>
 <h2>Summary</h2>
-<font size="6">Very Simple example of WebApi implementing Cloud Native Architecture having capability to handle 10000 concurrent user with degree of parallalism having capability of controlling Task adhering KISS and DRY architectural principles balancing seven architectural concerns giving priority to Performance and Scalability, Extensibility over others. Since Cloud native Availability also assured</font>
+<font size="6">Very Simple example of WebApi implementing Cloud Native Architecture having capability to handle 10000 concurrent user with degree of parallelism having capability of controlling Task adhering KISS and DRY architectural principles balancing seven architectural concerns giving priority to Performance and Scalability, Extensibility over others. Since Cloud native Availability also assured</font>
 <h2>Highlights</h2>
 <font size="6">
  <ul>
