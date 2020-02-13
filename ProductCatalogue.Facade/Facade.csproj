@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProductCatalogue.AggregateRoute\AggregateRoute.csproj" />
+    <ProjectReference Include="..\ProductCatalogue.Contacts\Contacts.csproj" />
+    <ProjectReference Include="..\ProductCatalogue.Models\Models.csproj" />
+  </ItemGroup>
+
+</Project>
