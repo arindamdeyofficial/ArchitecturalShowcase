@@ -12,13 +12,19 @@ namespace ProductCatalogueApi.Controllers
     [Route("api/[controller]")]
     public class ProductCatalogueController : BaseController<ProductCatalogueController>
     {
+        public ProductCatalogueController(
+           IMapper mapper,
+           [FromServices]IProductCatalogueServiceFacade productCatalogueServiceFacade,
+           IOptions<AppConfigs> configs):base(mapper, productCatalogueServiceFacade, configs) { }
+
         [HttpGet("~/api/[controller]/SearchProduct")]
         public async Task<JsonResult> SearchProduct(string title, [FromServices]ISearchProduct fsd)
         {
-            return new JsonResult(await _productCatalogueServiceFacade.SearchProduct(new ProductContract
+            var r = await _productCatalogueServiceFacade.SearchProduct(new ProductContract
             {
                 Title = title
-            }, fsd));
+            }, fsd);
+            return new JsonResult(r);
         }
 
         [HttpPost]
