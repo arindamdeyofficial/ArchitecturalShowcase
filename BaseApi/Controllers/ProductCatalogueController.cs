@@ -20,18 +20,16 @@ namespace ProductCatalogueApi.Controllers
         [HttpGet("~/api/[controller]/SearchProduct")]
         public async Task<JsonResult> SearchProduct(string title, [FromServices]ISearchProduct fsd)
         {
-            var r = await _productCatalogueServiceFacade.SearchProduct(new ProductContract
+            return new JsonResult(await _productCatalogueServiceFacade.SearchProduct(new ProductContract
             {
                 Title = title
-            }, fsd);
-            return new JsonResult(r);
+            }, fsd));
         }
 
         [HttpPost]
         [Route("~/api/[controller]/AddProduct")]
         public async Task<JsonResult> AddProductAsync(ProductModel prd, [FromServices]IAddProduct fsd)
         {
-
             return new JsonResult(await _productCatalogueServiceFacade.AddProduct(_mapper.Map<ProductContract>(prd), fsd));
         }
 
