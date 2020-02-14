@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -8,6 +9,7 @@ namespace Helpers
     public class EncryptionHelper : IEncryptionHelper
     {
         private static readonly Lazy<IEncryptionHelper> _instance = new Lazy<IEncryptionHelper>(() => new EncryptionHelper());
+
         public static IEncryptionHelper Instance
         {
             get
@@ -15,39 +17,7 @@ namespace Helpers
                 return _instance.Value;
             }
         }
-        public string EncryptStringToString_Aes(string original = "")
-        {
-            // Create a new instance of the Aes
-            // class.  This generates a new key and initialization 
-            // vector (IV).
-            using (Aes myAes = Aes.Create())
-            {
-
-                // Encrypt the string to an array of bytes.
-                byte[] encrypted = EncryptStringToBytes_Aes(original, myAes.Key, myAes.IV);
-                return Encoding.ASCII.GetString(encrypted, 0, encrypted.Length);
-            }
-        }
-        public string DecryptStringToString_Aes(string original = "")
-        {
-            // Create a new instance of the Aes
-            // class.  This generates a new key and initialization 
-            // vector (IV).
-            using (Aes myAes = Aes.Create())
-            {
-                Byte[] bytes;
-                int byteCount = Encoding.ASCII.GetByteCount(original.ToCharArray(), 6, 8);
-                bytes = new Byte[byteCount];
-
-                if (Encoding.ASCII.GetBytes(original, 0, original.Length, bytes, 0) != -1)
-                {
-                    // Encrypt the string to an array of bytes.
-                    return DecryptStringFromBytes_Aes(bytes, myAes.Key, myAes.IV);
-                }
-            }
-            return string.Empty;
-        }
-        public byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
+        public byte[] EncryptString_Aes(string plainText, byte[] Key, byte[] IV)
         {
             // Check arguments.
             if (plainText == null || plainText.Length <= 0)
@@ -64,6 +34,7 @@ namespace Helpers
             {
                 aesAlg.Key = Key;
                 aesAlg.IV = IV;
+                aesAlg.Padding = PaddingMode.Zeros;
 
                 // Create an encryptor to perform the stream transform.
                 ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
@@ -87,7 +58,7 @@ namespace Helpers
             return encrypted;
         }
 
-        public string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] Key, byte[] IV)
+        public string DecryptString_Aes(byte[] cipherText, byte[] Key, byte[] IV)
         {
             // Check arguments.
             if (cipherText == null || cipherText.Length <= 0)
@@ -107,6 +78,7 @@ namespace Helpers
             {
                 aesAlg.Key = Key;
                 aesAlg.IV = IV;
+                aesAlg.Padding = PaddingMode.Zeros;
 
                 // Create a decryptor to perform the stream transform.
                 ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
@@ -127,7 +99,35 @@ namespace Helpers
                 }
             }
 
-            return plaintext;
+            return plaintext.Replace("\0", "");
+        }
+        public byte[] ConvertStringToByteArrayAscii(string str)
+        {
+            Byte[] bytes;
+            int byteCount = Encoding.ASCII.GetByteCount(str.ToCharArray(), 0, str.Length);
+            bytes = new Byte[byteCount];
+            var converted = Encoding.ASCII.GetBytes(str, 0, str.Length, bytes, 0);
+            return (converted > 0) ? bytes : new byte[0];
+        }
+        public byte[] ConvertStringToByteArrayUtf8(string str)
+        {
+            Byte[] bytes;
+            int byteCount = Encoding.UTF8.GetByteCount(str.ToCharArray(), 0, str.Length);
+            bytes = new Byte[byteCount*2];
+            var converted = Encoding.UTF8.GetBytes(str, 0, str.Length, bytes, 0);
+            return (converted > 0) ? RemoveTraillingNullFromByteArray(bytes) : new byte[0];
+        }
+        public string ConvertByteArrayToStringAscii(byte[] str)
+        {            
+            return Encoding.ASCII.GetString(str);
+        }
+        public string ConvertByteArrayToStringUtf8(byte[] str)
+        {
+            return Encoding.UTF8.GetString(str);
+        }
+        public byte[] RemoveTraillingNullFromByteArray(byte[] bytes)
+        {
+            return bytes.TakeWhile((v, index) => bytes.Skip(index).Any(w => w != 0x00)).ToArray();
         }
     }
 }

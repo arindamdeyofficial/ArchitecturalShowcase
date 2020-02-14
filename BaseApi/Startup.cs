@@ -12,6 +12,9 @@ using ProductCatalogue.Contacts.ServiceContracts;
 using ProductCatalogue.Facade;
 using ProductCatalogue.Repository;
 using ProductCatalogue.Repository.EfModel;
+using Microsoft.AspNetCore.DataProtection;
+using System.IO;
+using System;
 
 namespace ProductCatalogueApi
 {
@@ -49,6 +52,9 @@ namespace ProductCatalogueApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+            services.AddDataProtection()
+                .PersistKeysToFileSystem(new DirectoryInfo(@"C:\Users\arindam_d\OneDrive - Dell Technologies\Work\ArchitecturalShowcase\keys"))
+                .SetDefaultKeyLifetime(TimeSpan.FromDays(14));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

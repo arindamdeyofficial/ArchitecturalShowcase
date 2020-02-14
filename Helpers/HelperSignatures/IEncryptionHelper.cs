@@ -4,9 +4,12 @@ namespace Helpers
 {
     public interface IEncryptionHelper
     {
-        string EncryptStringToString_Aes(string original = "");
-        string DecryptStringToString_Aes(string original = "");
-        byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV);
-        string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] Key, byte[] IV);
+        byte[] EncryptString_Aes(string plainText, byte[] Key, byte[] IV);
+        string DecryptString_Aes(byte[] cipherText, byte[] Key, byte[] IV);
+        string ConvertByteArrayToStringUtf8(byte[] str);
+        string ConvertByteArrayToStringAscii(byte[] str);
+        byte[] ConvertStringToByteArrayUtf8(string str);
+        byte[] ConvertStringToByteArrayAscii(string str);
+        byte[] RemoveTraillingNullFromByteArray(byte[] bytes);
     }
 }
