@@ -1,15 +1,8 @@
 ﻿using AutoMapper;
 using Helpers;
-using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using ProductCatalogue.AggregateRoute;
 using ProductCatalogue.Contacts;
-using ProductCatalogue.Contacts.ServiceContracts;
-using ProductCatalogue.Models;
-using System;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
 
 namespace ProductCatalogueApi.Controllers
 {
