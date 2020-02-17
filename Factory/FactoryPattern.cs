@@ -7,7 +7,9 @@ namespace Factory
     {        
         public IDevice CreateDevice(string deviceType)
         {
-            switch (Enum.Parse(typeof(DeviceEnum), deviceType.ToUpper()))
+            DeviceEnum deviceTypeEnum;
+            if (Enum.TryParse(deviceType.ToUpper(), out deviceTypeEnum)) deviceTypeEnum = DeviceEnum.NODEVICE;
+            switch (deviceTypeEnum)
             {
                 case DeviceEnum.DESKTOP:
                     return new Desktop();

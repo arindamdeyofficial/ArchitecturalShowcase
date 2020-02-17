@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AbstractFactory\AbstractFactory.csproj" />
     <ProjectReference Include="..\AggregateRoute\AggregateRoute.csproj" />
     <ProjectReference Include="..\Contacts\Contacts.csproj" />
     <ProjectReference Include="..\Facade\Facade.csproj" />
