@@ -10,6 +10,18 @@ namespace Helpers
     {
         private static readonly Lazy<IEncryptionHelper> _instance = new Lazy<IEncryptionHelper>(() => new EncryptionHelper());
 
+        //peoblem with IDataProtector is key will be max for 90 days
+        //private readonly IDataProtector _protector;  
+        private static readonly Aes _myAes;
+        private static readonly byte[] _key;
+        private static readonly byte[] _four;
+        static EncryptionHelper()
+        {
+            //_protector = provider.CreateProtector(GetType().FullName);
+            _myAes = Aes.Create();
+            _key = _myAes.Key;
+            _four = _myAes.IV;
+        }
         public static IEncryptionHelper Instance
         {
             get
@@ -17,23 +29,19 @@ namespace Helpers
                 return _instance.Value;
             }
         }
-        public byte[] EncryptString_Aes(string plainText, byte[] Key, byte[] IV)
+        public EncryptionDetails EncryptString_Aes(string plainText)
         {
             // Check arguments.
             if (plainText == null || plainText.Length <= 0)
                 throw new ArgumentNullException("plainText");
-            if (Key == null || Key.Length <= 0)
-                throw new ArgumentNullException("Key");
-            if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
             byte[] encrypted;
 
             // Create an Aes object
             // with the specified key and IV.
             using (Aes aesAlg = Aes.Create())
             {
-                aesAlg.Key = Key;
-                aesAlg.IV = IV;
+                aesAlg.Key = _key;
+                aesAlg.IV = _four;
                 aesAlg.Padding = PaddingMode.Zeros;
 
                 // Create an encryptor to perform the stream transform.
@@ -55,18 +63,21 @@ namespace Helpers
             }
 
             // Return the encrypted bytes from the memory stream.
-            return encrypted;
+            return new EncryptionDetails
+            {
+                EncryptedText = Convert.ToBase64String(encrypted),
+                Key = Convert.ToBase64String(_key),
+                Iv = Convert.ToBase64String(_four),
+                PlainText = plainText
+            };
         }
 
-        public string DecryptString_Aes(byte[] cipherText, byte[] Key, byte[] IV)
+        public EncryptionDetails DecryptString_Aes(EncryptionDetails cipherDetails)
         {
             // Check arguments.
-            if (cipherText == null || cipherText.Length <= 0)
+            if (cipherDetails == null || cipherDetails?.EncryptedText.Length <= 0)
                 throw new ArgumentNullException("cipherText");
-            if (Key == null || Key.Length <= 0)
-                throw new ArgumentNullException("Key");
-            if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
+            string cipherText = cipherDetails?.EncryptedText;
 
             // Declare the string used to hold
             // the decrypted text.
@@ -76,15 +87,15 @@ namespace Helpers
             // with the specified key and IV.
             using (Aes aesAlg = Aes.Create())
             {
-                aesAlg.Key = Key;
-                aesAlg.IV = IV;
+                aesAlg.Key = Convert.FromBase64String(cipherDetails.Key);
+                aesAlg.IV = Convert.FromBase64String(cipherDetails.Iv);
                 aesAlg.Padding = PaddingMode.Zeros;
 
                 // Create a decryptor to perform the stream transform.
                 ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 
                 // Create the streams used for decryption.
-                using (MemoryStream msDecrypt = new MemoryStream(cipherText))
+                using (MemoryStream msDecrypt = new MemoryStream(Convert.FromBase64String(cipherText)))
                 {
                     using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
                     {
@@ -99,7 +110,13 @@ namespace Helpers
                 }
             }
 
-            return plaintext.Replace("\0", "");
+            return new EncryptionDetails
+            {
+                EncryptedText = plaintext.Replace("\0", ""),
+                Key = Convert.ToBase64String(_key),
+                Iv = Convert.ToBase64String(_four),
+                PlainText = cipherText
+            };
         }
         public byte[] ConvertStringToByteArrayAscii(string str)
         {
@@ -129,5 +146,12 @@ namespace Helpers
         {
             return bytes.TakeWhile((v, index) => bytes.Skip(index).Any(w => w != 0x00)).ToArray();
         }
+    }
+    public class EncryptionDetails
+    {
+        public string EncryptedText { get; set; }
+        public string PlainText { get; set; }
+        public string Key { get; set; }
+        public string Iv { get; set; }
     }
 }
