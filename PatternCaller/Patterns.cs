@@ -7,7 +7,7 @@ namespace PatternCaller
     public class Patterns: BasePatterns, IPatterns
     {
         public readonly IFactoryPattern _factory;
-        public Patterns(IFactoryPattern factory):base()
+        public Patterns(IFactoryPattern factory, IServiceCollection services) :base(services)
         {
             _factory = factory;
         }

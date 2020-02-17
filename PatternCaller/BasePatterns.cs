@@ -5,10 +5,10 @@ namespace PatternCaller
 {
     public class BasePatterns
     {
-        public BasePatterns()
+        public readonly IServiceCollection _services;
+        public BasePatterns(IServiceCollection services)
         {
-            var services = new ServiceCollection();
-            services.AddPatternsLibrary();
+            _services.AddPatternsLibrary();
         }
     }
 }

@@ -4,7 +4,7 @@ using System;
 
 namespace PatternCaller
 {
-    public interface IPatterns: IFactoryPattern
+    public interface IPatterns
     { 
     }
 }
