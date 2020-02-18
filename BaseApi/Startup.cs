@@ -15,7 +15,6 @@ using ProductCatalogue.Repository.EfModel;
 using Microsoft.AspNetCore.DataProtection;
 using System.IO;
 using System;
-using Factory;
 
 namespace ProductCatalogueApi
 {
@@ -48,7 +47,6 @@ namespace ProductCatalogueApi
             services.AddSingleton<IUpdateProduct, UpdateProduct>();
             services.AddSingleton<ISearchProduct, SearchProduct>();
             services.AddSingleton<IProductCatalogueServiceFacade, ProductCatalogueServiceFacade>();
-            services.AddSingleton<IFactoryPattern, FactoryPattern>();
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
