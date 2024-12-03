@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	<IsPackable>true</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Polly" Version="8.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExceptionHandlerCustom\ExceptionHandlerCustom.csproj" />
+    <ProjectReference Include="..\LoggerHelper\CustomLoggerHelper.csproj" />
+    <ProjectReference Include="..\SecretsKeyVault\SecretsKeyVault.csproj" />
+  </ItemGroup>
+
+</Project>

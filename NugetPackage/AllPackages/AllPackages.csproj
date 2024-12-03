@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AuthHelper\AuthHelper.csproj" />
+    <ProjectReference Include="..\BusinessModel\BusinessModel.csproj" />
+    <ProjectReference Include="..\EfConnect\EfConnect.csproj" />
+    <ProjectReference Include="..\EmailConnect\EmailConnect.csproj" />
+    <ProjectReference Include="..\ExceptionHandlerCustom\ExceptionHandlerCustom.csproj" />
+    <ProjectReference Include="..\HttpClientConnect\HttpClientConnect.csproj" />
+    <ProjectReference Include="..\LoggerHelper\CustomLoggerHelper.csproj" />
+    <ProjectReference Include="..\MongoConnect\MongoConnect.csproj" />
+    <ProjectReference Include="..\Resiliency\Resiliency.csproj" />
+    <ProjectReference Include="..\SecretsKeyVault\SecretsKeyVault.csproj" />
+    <ProjectReference Include="..\SignalR\SignalR.csproj" />
+    <ProjectReference Include="..\SqlConnect\SqlConnect.csproj" />
+  </ItemGroup>
+
+</Project>
